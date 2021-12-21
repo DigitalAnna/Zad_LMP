@@ -2,12 +2,16 @@
 #include "backsubst.h"
 #include "mat_io.h"
 #include "testy_3_4.h"
+#include "testy_1_2.h" 
 #include <stdlib.h>
 #include <stdio.h>
 
 
 int main(int argc, char ** argv) {
 	int res;
+
+	test1(argv[1], argv[2]); 
+    test2(argv[1]);
 
 	test4();
 
