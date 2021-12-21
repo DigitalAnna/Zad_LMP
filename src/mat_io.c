@@ -13,7 +13,7 @@ Matrix * readFromFile(char * fname) {
 				Matrix * mat = NULL;
 
 				if (fin != NULL) {
-					fscanf(fin,"%d %d",&r,&c);
+					fscanf(fin,"%d %d",&r,&c);					
 					mat = createMatrix(r,c);
 					if (mat != NULL) {
 						for (ir = 0; ir < r; ir++) 
