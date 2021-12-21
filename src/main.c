@@ -1,12 +1,19 @@
 #include "gauss.h"
 #include "backsubst.h"
 #include "mat_io.h"
+#include "testy_3_4.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 
 int main(int argc, char ** argv) {
 	int res;
+
+	test1(argv[1], argv[2]); 
+    test2(argv[1]);
+
+	test4();
+
 	Matrix * A = readFromFile(argv[1]);
 	Matrix * b = readFromFile(argv[2]);
 	Matrix * x;
@@ -26,6 +33,8 @@ int main(int argc, char ** argv) {
 	} else {
 					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
 	}
+
+	test3(A, argv[1]);
 
 	freeMatrix(A);
 	freeMatrix(b);
