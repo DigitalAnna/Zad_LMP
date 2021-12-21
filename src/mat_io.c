@@ -12,13 +12,20 @@ Matrix * readFromFile(char * fname) {
 				FILE * fin =  fopen(fname,"r");
 				Matrix * mat = NULL;
 
+				int count = 0;
+
 				if (fin != NULL) {
-					fscanf(fin,"%d %d",&r,&c);					
+					fscanf(fin,"%d %d",&r,&c);
 					mat = createMatrix(r,c);
 					if (mat != NULL) {
 						for (ir = 0; ir < r; ir++) 
-							for (ic = 0; ic < c; ic++)
-								fscanf(fin, "%lf",&(mat->data[ir][ic]));
+							for (ic = 0; ic < c; ic++){ 
+								//test4 ERROR
+								if((fscanf(fin, "%lf",&(mat->data[ir][ic])) != 1) && count == 0){
+									fprintf(stderr,"Test 4 - Czy poprawny format danych w pliku %s?: ERROR!\n", fname);
+									count++;
+								}
+							}
 					} else {
 								fprintf(stderr,"Wystąpił problem podczas tworzenia macierzy o rozmiarach %d x %d dla danych z pliku: %s\n", r, c, fname);
 					}
@@ -26,6 +33,11 @@ Matrix * readFromFile(char * fname) {
 					fclose(fin);
 				} else {
 								fprintf(stderr,"Nie mogę otworzyć pliku o nazwie: %s\n", fname);
+				}
+
+				//test4 OK
+				if(count == 0){
+					printf("Test 4 - Czy poprawny format danych w pliku %s?: OK.\n", fname);
 				}
 
 				return mat;
