@@ -9,9 +9,6 @@
 int main(int argc, char ** argv) {
 	int res;
 
-	test1(argv[1], argv[2]); 
-    test2(argv[1]);
-
 	test4();
 
 	Matrix * A = readFromFile(argv[1]);
