@@ -5,8 +5,8 @@
  * Zwraca 1 - macierz osobliwa - dzielenie przez 0
  */
 int eliminate(Matrix *mat, Matrix *b){
-		
-    int l, d, w, i;
+    
+	int l, d, w, i;
 	double  *t1, *t2;
 	double a;
 
@@ -39,4 +39,3 @@ int eliminate(Matrix *mat, Matrix *b){
 	}
 	return 0;
 }
-
